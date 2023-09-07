@@ -344,6 +344,7 @@ exports.generate_header = function generate_header(board_description_object, tar
   replacements.display = !(has_display) ? '' : `
     daisy::OledDisplay<${target.display.driver}>::Config display_config;
     display_config.driver_config.transport_config.Defaults();
+    display_config.driver_config.transport_config.pin_config.reset = daisy::seed::D31;
     display.Init(display_config);
     display.Fill(0);
     display.Update();
