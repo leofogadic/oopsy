@@ -12,8 +12,8 @@ Always check out the latest installation instructions on [Electrosmith github](h
 
 ### Oopsy Max Package
 ## *ONLY USE COMPONENTAL'S MODIFIED VERSION OF OOPSY OR IT WILL FRY THE OLED ON V1.5!*
-- Downloaded Oopsy Max Package with the **bootloader-additions** branch: `git clone https://github.com/rallevondalle/oopsy.git` and run ./install.sh
-- Change branch to **bootloader-additions** if you downloaded via git
+- Download Oopsy Max Package with the **bootloader-additions** branch via git: `git clone https://github.com/rallevondalle/oopsy.git` and run ./install.sh
+- Change branch to **bootloader-additions** if you downloaded via git ([otherwise, get the zip version here](https://github.com/rallevondalle/oopsy/archive/refs/heads/bootloader-additions.zip))
 - MAKE SURE YOU CHANGE BRANCH
 - Add path to Oopsy Max package to Max path.
 
