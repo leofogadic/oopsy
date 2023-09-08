@@ -1,6 +1,22 @@
-# Oopsy: Gen~ to Daisy
+# Oopsy [COMPONENTAL VERSION]: Gen~ to Daisy
 
 Exporting Max Gen patchers for the ElectroSmith Daisy hardware platforms.
+
+## Installing
+
+Always check out the latest installation instructions on [Electrosmith github](https://github.com/electro-smith/DaisyWiki/wiki/1.-Setting-Up-Your-Development-Environment) for setting up your development environment.
+
+**Install the toolchain on macOS M1 / M2 processor**
+- Install M1/M2 version of tool chain via [Electrosmith installer](https://media-obsy-dev.fra1.cdn.digitaloceanspaces.com/installers/DaisyToolchain-macos-installer-x64-0.1.3-ARM.pkg).
+- Install this version specifically: **[arm-none-eabi-gcc v10.3-2021.10](https://developer.arm.com/downloads/-/gnu-rm)** - check in terminal with `arm-none-eabi-gcc --version`
+
+### Oopsy Max Package (*ONLY USE COMPONENTAL'S MODIFIED VERSION OF OOPSY OR IT WILL FRY THE OLED ON V1.5!*)
+- Downloaded Oopsy Max Package with the **bootloader-additions** branch: `git clone https://github.com/electro-smith/oopsy/tree/bootloader-additions` and run ./install.sh
+- Change branch to **bootloader-additions** if you downloaded via git
+- MAKE SURE YOU CHANGE BRANCH
+- Add path to Oopsy Max package to Max path.
+
+When flasing, **always use the JSON file provided by Componental from [this folder]()**
 
 [![Oopsy on Youtube](https://img.youtube.com/vi/fbd1CASqUmI/0.jpg)](https://www.youtube.com/playlist?list=PLZbxc8QYjD1eJHJEjzDkNB_zshbnVN6CH)
 
@@ -68,22 +84,6 @@ node oopsy.js field ../examples/simple.cpp
 - Up to eight cpp files can be mentioned in the arguments; they will all be loaded onto the Daisy, with a simple menu system to switch between them. Use long encoder press to go into mode selection, rotate until you get the app menu, and release. Now rotate the encoder to select the app, and short press the encoder to load it. (On the Patch, use SW1 long press to go into mode selection, SW2 to swich mode until you get the app menu, release SW1; then press SW2 to select app, and SW1 to load it.)
 - If the `watch` keyword is added to the oopsy.js arguments, it will re-run the process every time any of the cpp files change -- which is handy since gen~ will re-export on every edit.
 - For a custom hardware configuration (other than Patch/Field/Petal/Pod) you can specify a JSON file in the arguments.
-
-## Installing
-
-Always check out the latest installation instructions on [Electrosmith github](https://github.com/electro-smith/DaisyWiki/wiki/1.-Setting-Up-Your-Development-Environment) for setting up your development environment.
-
-**Install the toolchain on macOS M1 / M2 processor**
-- Install M1/M2 version of tool chain via [Electrosmith installer](https://media-obsy-dev.fra1.cdn.digitaloceanspaces.com/installers/DaisyToolchain-macos-installer-x64-0.1.3-ARM.pkg).
-- Install this version specifically: **[arm-none-eabi-gcc v10.3-2021.10](https://developer.arm.com/downloads/-/gnu-rm)** - check in terminal with `arm-none-eabi-gcc --version`
-
-### Oopsy Max Package (*ONLY USE COMPONENTAL'S MODIFIED VERSION OF OOPSY OR IT WILL FRY THE OLED ON V1.5!*)
-- Downloaded Oopsy Max Package with the **bootloader-additions** branch: `git clone https://github.com/electro-smith/oopsy/tree/bootloader-additions` and run ./install.sh
-- Change branch to **bootloader-additions** if you downloaded via git
-- MAKE SURE YOU CHANGE BRANCH
-- Add path to Oopsy Max package to Max path.
-
-When flasing, **always use the JSON file provided by Componental from [this folder]()**
 
 ## Licensing
 
