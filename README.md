@@ -10,7 +10,8 @@ Always check out the latest installation instructions on [Electrosmith github](h
 - Install M1/M2 version of tool chain via [Electrosmith installer](https://media-obsy-dev.fra1.cdn.digitaloceanspaces.com/installers/DaisyToolchain-macos-installer-x64-0.1.3-ARM.pkg).
 - Install this version specifically: **[arm-none-eabi-gcc v10.3-2021.10](https://developer.arm.com/downloads/-/gnu-rm)** - check in terminal with `arm-none-eabi-gcc --version`
 
-### Oopsy Max Package (*ONLY USE COMPONENTAL'S MODIFIED VERSION OF OOPSY OR IT WILL FRY THE OLED ON V1.5!*)
+### Oopsy Max Package
+## *ONLY USE COMPONENTAL'S MODIFIED VERSION OF OOPSY OR IT WILL FRY THE OLED ON V1.5!*
 - Downloaded Oopsy Max Package with the **bootloader-additions** branch: `git clone https://github.com/rallevondalle/oopsy.git` and run ./install.sh
 - Change branch to **bootloader-additions** if you downloaded via git
 - MAKE SURE YOU CHANGE BRANCH
