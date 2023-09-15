@@ -17,7 +17,7 @@ Always check out the latest installation instructions on [Electrosmith github](h
 - MAKE SURE YOU CHANGE BRANCH
 - Add path to Oopsy Max package to Max path.
 
-When flasing, **always use the JSON file provided by Componental from [this folder]()**
+When flasing, **always use the JSON file provided by Componental from [this folder](https://gitlab.com/componental/daisy-dub-dafx/-/tree/main/json?ref_type=heads)**
 
 [![Oopsy on Youtube](https://img.youtube.com/vi/fbd1CASqUmI/0.jpg)](https://www.youtube.com/playlist?list=PLZbxc8QYjD1eJHJEjzDkNB_zshbnVN6CH)
 
