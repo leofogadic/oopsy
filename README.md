@@ -3,9 +3,6 @@
 Exporting Max Gen patchers for the ElectroSmith Daisy hardware platforms.
 
 ## Installing
-
-Always check out the latest installation instructions on [Electrosmith github](https://github.com/electro-smith/DaisyWiki/wiki/1.-Setting-Up-Your-Development-Environment) for setting up your development environment.
-
 **Install the toolchain on macOS M1 / M2 processor**
 - Install M1/M2 version of tool chain via [Electrosmith installer](https://media-obsy-dev.fra1.cdn.digitaloceanspaces.com/installers/DaisyToolchain-macos-installer-x64-0.1.3-ARM.pkg).
 - Install this version specifically: **[arm-none-eabi-gcc v10.3-2021.10](https://developer.arm.com/downloads/-/gnu-rm)** - check in terminal with `arm-none-eabi-gcc --version`
