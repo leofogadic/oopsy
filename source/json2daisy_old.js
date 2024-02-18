@@ -413,14 +413,6 @@ ${replacements.som == 'seed' ? '#include "dev/codec_ak4556.h"' : ''}
 ${has_display ? '#include "dev/oled_ssd130x.h"' : ''}
 ${replacements.headers}
 
-#include "stm32h7xx_hal.h"
-#include "../utility/DaisySP/daisysp.h"
-#include "../utility/clock.h"
-
-#include "math.h"
-
-using namespace daisy;
-
 #define ANALOG_COUNT ${replacements.analogcount}
 
 namespace json2daisy {
@@ -430,54 +422,6 @@ ${replacements.non_class_declarations}
 ${replacements.name != '' ? `struct Daisy${replacements.name[0].toUpperCase()}${replacements.name.slice(1)} {`
  : `struct Daisy {`}
 
- void ConfigureAudio()
- {
-   I2CHandle::Config i2c_cfg;
-   i2c_cfg.periph         = I2CHandle::Config::Peripheral::I2C_1;
-   i2c_cfg.mode           = I2CHandle::Config::Mode::I2C_MASTER;
-   i2c_cfg.speed          = I2CHandle::Config::Speed::I2C_400KHZ;
-   i2c_cfg.pin_config.scl = {DSY_GPIOB, 8};
-   i2c_cfg.pin_config.sda = {DSY_GPIOB, 9};
-
-   I2CHandle i2c2;
-   i2c2.Init(i2c_cfg);
-   
-   // pullups must be enabled
-   GPIOB->PUPDR &= ~((GPIO_PUPDR_PUPD8)|(GPIO_PUPDR_PUPD9)); 
-   GPIOB->PUPDR |= ((GPIO_PUPDR_PUPD8_0)|(GPIO_PUPDR_PUPD9_0)); 
-
-   Pcm3060 codec;
-   
-   codec.Init(i2c2);;
-
-
-   SaiHandle::Config sai_config;
-   sai_config.periph          = SaiHandle::Config::Peripheral::SAI_2;
-   sai_config.sr              = SaiHandle::Config::SampleRate::SAI_48KHZ;
-   sai_config.bit_depth       = SaiHandle::Config::BitDepth::SAI_24BIT;
-   sai_config.a_sync          = SaiHandle::Config::Sync::SLAVE;
-   sai_config.b_sync          = SaiHandle::Config::Sync::MASTER;
-   sai_config.pin_config.fs   = {DSY_GPIOG, 9};
-   sai_config.pin_config.mclk = {DSY_GPIOA, 1};
-   sai_config.pin_config.sck  = {DSY_GPIOA, 2};
-   sai_config.a_dir         = SaiHandle::Config::Direction::TRANSMIT;
-   sai_config.pin_config.sa = {DSY_GPIOD, 11};
-   sai_config.b_dir         = SaiHandle::Config::Direction::RECEIVE;
-   sai_config.pin_config.sb = {DSY_GPIOA, 0};
-   
-   
-   SaiHandle sai_2_handle;
-   sai_2_handle.Init(sai_config);
-   
-   
-   // Audio
-   AudioHandle::Config audio_config;
-   audio_config.blocksize  = 48;
-   audio_config.samplerate = SaiHandle::Config::SampleRate::SAI_48KHZ;
-   audio_config.postgain   = 1.f;
-   som.audio_handle.Init(audio_config, sai_2_handle);
- }
-
   /** Initializes the board according to the JSON board description
    *  \\param boost boosts the clock speed from 400 to 480 MHz
    */
@@ -485,9 +429,6 @@ ${replacements.name != '' ? `struct Daisy${replacements.name[0].toUpperCase()}${
   {
     ${replacements.som == 'seed' ? `som.Configure();
     som.Init(boost);` : `som.Init();`}
-    
-    ConfigureAudio();
-
     ${replacements.init}
     ${replacements.i2c != '' ? '// i2c\n    ' + replacements.i2c : ''}
     ${replacements.pca9685 != '' ? '// LED Drivers\n    ' + replacements.pca9685 : ''}
